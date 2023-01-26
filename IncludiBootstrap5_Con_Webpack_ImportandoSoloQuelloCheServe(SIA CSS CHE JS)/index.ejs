@@ -1,0 +1,47 @@
+<!-- QUI MINIFICO IL CSS PRODOTTO E APPLICO ANCHE AUTOPREFIXER
+  E I BROWSER TARGET DI BOOTSTRAP.
+  C'E' IL PROBLEMA CHE VORREI USARE UN BROWSELIST DIVERSO
+  PER IL CSS DI BOOTSTRAP E PER QUELLO MIO
+LA MINIFICAZIONE DEL CSS LA FA ANCHE SE POTREBBE ESSERE
+PIU SPINTA E PERSONALIZZATA.
+SI POTREBBE USARRE CSS-PURGE CHE ELIMINA IL CSS CHE NON USI -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bootstrap 5 con Webpack</title>
+
+		<% if (process.env.NODE_ENV === 'production'){%>
+		<link type="text/css" rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[0] %>" />
+		<% }%>
+	</head>
+	<body>
+		<div class="container py-5 px-3 mx-auto">
+			<h1>Hello, Bootstrap and Webpack!</h1>
+			<div class="d-flex align-items-center">
+				<button class="btn btn-primary me-1">Primary button</button>
+				<button class="btn btn-napoli me-1">Primary button</button>
+				<button
+					type="button"
+					class="btn btn-lg btn-danger"
+					data-bs-toggle="popover"
+					data-bs-title="Popover title"
+					data-bs-content="And here's some amazing content. It's very engaging. Right?"
+				>
+					Click to toggle popover
+				</button>
+			</div>
+		</div>
+
+		<main>
+			<div class="wrapper">
+				<article class="article">Article 1</article>
+			</div>
+		</main>
+
+		<script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
+	</body>
+</html>
